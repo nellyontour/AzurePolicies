@@ -1,0 +1,25 @@
+{
+  "policyType": "Custom",
+  "mode": "All",
+  "policyRule": {
+    "if": {
+      "allOf": [
+        {
+          "field": "type",
+          "equals": "Microsoft.ServiceBus/namespaces"
+        },
+        {
+            "field": "Microsoft.ServiceBus/namespaces/minimumTlsVersion",
+            "in": [
+              "1.0",
+              "1.1"
+            ]
+        }
+      ]
+    },
+    "then": {
+      "effect": "deny"
+    }
+  },
+  "parameters": {}
+}

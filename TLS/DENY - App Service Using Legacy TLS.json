@@ -1,0 +1,30 @@
+{
+  "displayName": "Deny App Services using TLS 1.0 or TLS 1.1",
+  "policyType": "Custom",
+  "mode": "All",
+  "policyRule": {
+    "if": {
+      "allOf": [
+        {
+          "field": "type",
+          "equals": "Microsoft.Web/sites"
+        },
+        {
+          "field": "kind",
+          "notContains": "functionapp"
+        },
+          {
+            "field": "Microsoft.Web/sites/minTlsVersion",
+            "in": [
+              "1.0",
+              "1.1"
+            ]
+          }
+      ]
+    },
+    "then": {
+      "effect": "deny"
+    }
+  },
+  "parameters": {}
+}

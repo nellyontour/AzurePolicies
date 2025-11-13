@@ -1,0 +1,25 @@
+{
+  "mode": "Indexed",
+  "policyRule": {
+    "if": {
+      "allOf": [
+        {
+          "field": "type",
+          "equals": "Microsoft.Web/sites"
+        },
+        {
+          "field": "kind",
+          "like": "*"
+        },
+        {
+          "field": "Microsoft.Web/sites/config/web.scmIpSecurityRestrictionsUseMain",
+          "notEquals": true
+        }
+      ]
+    },
+    "then": {
+      "effect": "deny"
+    }
+  },
+  "parameters": {}
+}
